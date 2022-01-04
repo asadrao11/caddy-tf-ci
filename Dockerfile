@@ -26,7 +26,7 @@ RUN set -eux; \
                 s390x)   binArch='s390x'; checksum='949f31cd4a9117c5ac23f195f5d50968ac3cd0cfa6ac3d7040c662a4a39679642f36cb42d9185f502e9887b147628e2c5dc402a06d01f00552a5ba9dfe774f09' ;; \
                 *) echo >&2 "error: unsupported architecture ($apkArch)"; exit 1 ;;\
         esac; \
-        wget -O /tmp/caddy.tar.gz "https://github.com/caddyserver/caddy/releases/download/v2.4.5/caddy_2.4.5_linux_${binArch}.tar.gz"; \
+        wget -O /tmp/caddy.tar.gz "https://github.com/caddyserver/caddy/releases/download/v2.4.6/caddy_2.4.6_linux_${binArch}.tar.gz"; \
         echo "$checksum  /tmp/caddy.tar.gz" | sha512sum -c; \
         tar x -z -f /tmp/caddy.tar.gz -C /usr/bin caddy; \
         rm -f /tmp/caddy.tar.gz; \
