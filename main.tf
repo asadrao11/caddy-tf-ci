@@ -40,28 +40,6 @@ resource "aws_instance" "linux_instance" {
   volume_tags = {
     Name = var.instanceName
   }
-  # Copy in the bash script we want to execute.
-  # The source is the location of the bash script
-  # on the local linux box you are executing terraform
-  # from.  The destination is on the new AWS instance.
-  provisioner "file" {
-    source      = "./app.sh"
-    destination = "/tmp/app.sh"
-  }
-  # Change permissions on bash script and execute from ec2-user.
-  provisioner "remote-exec" {
-    inline = [
-      "chmod +x /tmp/app.sh",
-      "sudo /tmp/app.sh",
-    ]
-  }
+  
 
-  # Login to the ec2-user with the aws key.
-  connection {
-    type        = "ssh"
-    user        = "ec2-user"
-    password    = ""
-    private_key = file(var.keyPath)
-    host        = self.public_ip
-  }
 } # end resource

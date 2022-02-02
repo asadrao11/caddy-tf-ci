@@ -1,10 +1,3 @@
-# variables.tf
-#variable "access_key" {
-#   default = ""
-#}
-#variable "secret_key" {
-#   default = ""
-#}
 variable "region" {
    default = "ap-south-1"
 }
@@ -16,9 +9,6 @@ variable "instanceType" {
 }
 variable "keyName" {
    default = "yayhost-test"
-}
-variable "keyPath" {
-   default = "./app.pem"
 }
 
 variable "securityGroups" {
